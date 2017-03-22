@@ -1,0 +1,10 @@
+
+.slider {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.slider input {
+  display: none;
+}
