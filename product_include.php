@@ -6,6 +6,8 @@ ON sanpham.id_dm = category.id_dm
 INNER JOIN hangsp
 ON sanpham.id_hang = hangsp.id_hang";
 $query = mysql_query($sql);
+
+setlocale(LC_MONETARY, 'en_US');
 ?>
 
   <div class="row">
@@ -40,7 +42,7 @@ $query = mysql_query($sql);
                   </a>
                 </th>
                 <th><span class="thumb"><img width="80" src="images/<?php echo $row['anh_sp'];?>" /></span></th>
-                <th><span class="price"><?php echo $row['gia_sp'];?></span>$</th>
+                <th><span class="price"><?php echo number_format($row['gia_sp'], 2);?></span>$</th>
                 <th>
                   <?php echo $row['ten_dm'];?>
                 </th>
