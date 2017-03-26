@@ -1,0 +1,25 @@
+limit lấy ra trong danh sách bao nhiêu phần từ 
+ví dụ nếu 1 bảng sản phẩm có 100 sản phẩm mà ta cần lấy 5 sản phẩm từ 100 sản phẩm thì ta dùng lệnh limit
+offset lấy ra phần tử với số thứ tự bao nhiêu cho đến hết
+ví dụ ta có 100 phần tử ta muốn lấy phần tử thứ 5 đến phần tử thứ 100
+
+thuật toán phân trang là làm sao để giới hạn được mỗi lần select ta select được một khối lượng bằng với khối lượng phần tử mà ta cần và nó không được trùng lặp nhau sau mỗi lần select.
+Đặt số phần tử muốn lấy sau mỗi lần select là 10;
+bình thường select 1 danh sách gồm 100 phần tử thì ta sẽ lấy được số thứ tự của các phần tử từ 0 - 99
+- tổng số lượng của các phần tử 
+- nếu như ta thấy dả dụ ta đang ở trang thứ 1 : 0 - 9;
+                                  trang thứ 2 : 10 - 19;
+                                  trang thứ 3 : 20 - 29;
+                                  trang thứ 4 : 30 - 39;
+                                  trang thứ 5 : 40 - 49;
+
+-Bước 1: tính trang tìm số trang
+         100 muốn lấy ra 10 phần tử thôi.
+         ta lấy được số trang là 100/10 = 10 trang
+         for(int i=0 ;i<số trang;i++)
+            
+        offset page * pagesize
+        ví dụ trang 10 ta có 0 * 10 = 0 lấy limit 10 => 0 - 9
+                             1 * 10 = 10 lấy limit 10 => 10 - 19 ...
+        for(int i=1 ;i<=số trang;i++)
+        offset (page - 1) * pagesize

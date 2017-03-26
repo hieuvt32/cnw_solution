@@ -94,3 +94,10 @@
 26.03.2017 06:32:38 sql=[select * from sanpham where id_sp =5] 
 26.03.2017 06:32:38 sql=[select * from sanpham where id_sp =8] 
 26.03.2017 06:32:38 sql=[select sum(item.quantity * sp.gia_sp) as tong_gia from cart_item item inner join sanpham sp on item.id_sp = sp.id_sp  where cart_id='58d7836c059e8'] 
+26.03.2017 06:35:42 sql=[select * from cart_item  where cart_id='58d7836c059e8' && id_sp=4] 
+26.03.2017 06:35:42 <!-- sql=[UPDATE cart_item SET quantity=11 WHERE item_id='58d7e58e9dbd8'] --> 
+26.03.2017 06:35:42 sql=[select * from cart_item where cart_id='58d7836c059e8'] 
+26.03.2017 06:35:42 sql=[select * from sanpham where id_sp =4] 
+26.03.2017 06:35:42 sql=[select * from sanpham where id_sp =5] 
+26.03.2017 06:35:42 sql=[select * from sanpham where id_sp =8] 
+26.03.2017 06:35:42 sql=[select sum(item.quantity * sp.gia_sp) as tong_gia from cart_item item inner join sanpham sp on item.id_sp = sp.id_sp  where cart_id='58d7836c059e8'] 
