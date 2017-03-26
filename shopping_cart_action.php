@@ -4,8 +4,8 @@ define("cart_action_key","cart_id");
 function add_to_cart($id)
 {
     $cart_id = get_cart_id();
-    $sql = "select * from cart_item";
-    $sql .= "where cart_id='{$cart_id}' && id_sp={$id}";
+    $sql = "select * from cart_item ";
+    $sql .= " where cart_id='{$cart_id}' && id_sp={$id}";
     $cart_item = select_one($sql);
     if($cart_item == null){
         $guid = uniqid();        
@@ -39,7 +39,17 @@ function get_cart_items()
 {
     $shopping_cart_id = get_cart_id();
     $sql = "select * from cart_item";
+    $sql .= " where cart_id='{$shopping_cart_id}'";
     $lst_cart_item = select_list($sql);
     return $lst_cart_item;
+}
+
+function get_total()
+{
+    $shopping_cart_id = get_cart_id();
+    $total = 0.0;
+    $sql = "select sum(item.quantity * sp.gia_sp)  from cart_item item inner join sanpham sp on item.id_sp = sp.id_sp  where cart_id='{$shopping_cart_id}'";
+    $total = select_one($sql);
+    return $total;
 }
 ?>
