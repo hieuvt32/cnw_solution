@@ -77,7 +77,7 @@ $num = count($product);
                     <?php echo $obj['ten_sp']?>
                   </a>
                 </p>
-                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                <a href="add_to_cart.php?id_sp=<?php echo $obj['id_sp']?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
               </div>
             </div>
           </div>

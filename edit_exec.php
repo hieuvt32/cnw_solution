@@ -1,5 +1,12 @@
 <?php
 include("lib_db.php");
+$error_ten_sp = "";
+$error_anh_sp = "";
+$error_gia_sp = "";
+$error_id_hang = "";
+$error_id_dm ="";
+$error_trang_thai ="";
+$error_chi_tiet = "";
 $message =  htmlentities($_REQUEST['chi_tiet']);
 $image = isset($_FILES['image_file']) ? $_FILES['image_file']:"";
 $name     = $image['name'];

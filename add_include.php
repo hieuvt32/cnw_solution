@@ -20,7 +20,7 @@ $queryCate = select_list($sqlCate);
       <div class="panel panel-default">
         <div class="panel-heading">Add product</div>
         <div class="panel-body">
-          <form method="post" action="add_exec.php">
+          <form method="post" action="add_exec.php"  enctype="multipart/form-data">
             <input type="hidden" name="id_sp" />
             <div class="form-group">
               <label for="exampleInputName">Name</label>
@@ -31,8 +31,9 @@ $queryCate = select_list($sqlCate);
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Image</label>
-              <input id="image_file" type="file" />
-              <input id="select_file" type="hidden" name="anh_sp" />
+              <input id="image_file" type="file" name="image_file" />
+              <input id="select_file" type="hidden" name="anh_sp"/>
+              <input id="path_file" type="hidden" value="" name="path_img" />
               <p class="help-block">
                 <?php echo $error_anh_sp;?>
               </p>
