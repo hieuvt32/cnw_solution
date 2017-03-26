@@ -1,7 +1,7 @@
 <?php
 include("shopping_cart_action.php");
 $cart_item = get_cart_items();
-$query = "select * from sanpham";
+
 ?>
   <div class="col-xs-12">
     <div class="table-responsive">
@@ -18,8 +18,9 @@ $query = "select * from sanpham";
         </thead>
         <tbody>
           <?php foreach ($cart_item as $item) { ?>
-            <?php $query = " where id_sp ={$item["id_sp"]}";?>
-              <?php $obj = select_one($query);?>
+            <?php $query = "select * from sanpham";?>
+            <?php $query .= " where id_sp ={$item["id_sp"]}";?>
+            <?php $obj = select_one($query);?>
                 <tr>
                   <td class="">
                     <input type="checkbox" value="option1" id="optionsCheckbox">
