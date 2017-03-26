@@ -1,11 +1,11 @@
 <?php
-include_once('ketnoi.php');
+include_once("lib_db.php");
 $sql = "SELECT * FROM sanpham
 INNER JOIN category
 ON sanpham.id_dm = category.id_dm
 INNER JOIN hangsp
 ON sanpham.id_hang = hangsp.id_hang";
-$query = mysql_query($sql);
+$query = select_list($sql);
 
 setlocale(LC_MONETARY, 'en_US');
 ?>
@@ -31,7 +31,7 @@ setlocale(LC_MONETARY, 'en_US');
         </thead>
         <tbody>
 
-          <?php while($row = mysql_fetch_array($query)){?>
+          <?php foreach ($query as $row){?>
             <tr>
               <th><span><?php echo $row['id_sp'];?></span></th>
               <th>
@@ -54,12 +54,12 @@ setlocale(LC_MONETARY, 'en_US');
         </tbody>
       </table>
       <div class="text-right">
-          <ul class="pagination" style="padding:0px;">
-            <li class="active"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">&raquo;</a></li>
-          </ul>
-        </div>
+        <ul class="pagination" style="padding:0px;">
+          <li class="active"><a href="">1</a></li>
+          <li><a href="">2</a></li>
+          <li><a href="">3</a></li>
+          <li><a href="">&raquo;</a></li>
+        </ul>
+      </div>
     </div>
   </div>

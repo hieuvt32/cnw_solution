@@ -1,5 +1,6 @@
-<?php include("lib_db.php"); ?>
-  <?php
+
+<?php
+include_once("lib_db.php");
 // Lấy thông tin hãng Sản phẩm Selectbox
 $error_ten_sp = isset($_REQUEST['error_ten_sp']) ? $_REQUEST['error_ten_sp']:"";
 $error_anh_sp = isset($_REQUEST['error_anh_sp']) ? $_REQUEST['error_anh_sp']:"";

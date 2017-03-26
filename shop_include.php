@@ -1,10 +1,5 @@
 <?php
-if(!isset($_SESSION))
-{
-    session_start();
-}
-include("lib_db.php");
-
+include_once("lib_db.php");
 // for pagination purposes
 $page = isset($_GET['page']) ? $_GET['page'] : 1; // page is the current page, if there's nothing set, default is page 1
 $records_per_page = 6; // set records or rows of data per page
@@ -77,7 +72,7 @@ $num = count($product);
                     <?php echo $obj['ten_sp']?>
                   </a>
                 </p>
-                <a href="add_to_cart.php?id_sp=<?php echo $obj['id_sp']?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                <a href="cart.php?id_sp=<?php echo $obj['id_sp']?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
               </div>
             </div>
           </div>

@@ -1,20 +1,19 @@
 <?php
+// include_once('ketnoi.php');
+// $tk = isset($_SESSION["tk"]) ? $_SESSION["tk"] : "";
+// $mk = isset($_SESSION["mk"]) ? $_SESSION["mk"] : "";
+// $sql = "SELECT * FROM thanhvien
+//  WHERE username = '".$tk."'
+// AND password = '".$mk."'";
+// $query = mysql_query($sql);
+// $num_rows = mysql_num_rows($query);
+
+// if($num_rows < 0){
+//     header('location:index.php');
+// }
 ob_start();
 session_start();
-
-include_once('ketnoi.php');
-$tk = isset($_SESSION["tk"]) ? $_SESSION["tk"] : "";
-$mk = isset($_SESSION["mk"]) ? $_SESSION["mk"] : "";
-$sql = "SELECT * FROM thanhvien
-WHERE username = '".$tk."'
-AND password = '".$mk."'";
-$query = mysql_query($sql);
-$num_rows = mysql_num_rows($query);
-
-if($num_rows < 0){
-    header('location:index.php');
-}
-
+ob_flush();
 ?>
   <!DOCTYPE html>
   <html lang="en">

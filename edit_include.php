@@ -1,5 +1,5 @@
 <?php
-include("lib_db.php");
+include_once("lib_db.php");
 $id_sp = $_GET['id_sp'];
 $error_ten_sp = isset($_REQUEST['error_ten_sp']) ? $_REQUEST['error_ten_sp']:"";
 $error_anh_sp = isset($_REQUEST['error_anh_sp']) ? $_REQUEST['error_anh_sp']:"";

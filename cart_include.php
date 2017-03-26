@@ -1,7 +1,15 @@
 <?php
+//include_once("lib_db.php");
 include("shopping_cart_action.php");
+$rawid = isset($_GET["id_sp"]) ? $_GET["id_sp"] : "";
+echo $rawid;
+$id_sp = intval($rawid);
+if(!(empty($rawid) || $rawid == null) && $id_sp != 0){
+    add_to_cart(intval($rawid));
+}else{
+    // logDebug("ERROR : We should never get to without a ProductId.");
+}
 $cart_item = get_cart_items();
-
 ?>
   <div class="col-xs-12">
     <div class="table-responsive">
@@ -19,27 +27,31 @@ $cart_item = get_cart_items();
         <tbody>
           <?php foreach ($cart_item as $item) { ?>
             <?php $query = "select * from sanpham";?>
-            <?php $query .= " where id_sp ={$item["id_sp"]}";?>
-            <?php $obj = select_one($query);?>
-                <tr>
-                  <td class="">
-                    <input type="checkbox" value="option1" id="optionsCheckbox">
-                  </td>
-                  <td class="muted center_text">
-                    <a href="product.html"><img src="images/<?php echo $obj["anh_sp"]?>" class="fix-image-cart" alt=""></a>
-                  </td>
-                  <td>
-                    <a href="detail.html">
-                      <?php echo $obj["chi_tiet"]?>
-                    </a>
-                  </td>
-                  <td>
-                    <input type="text" placeholder="1" class="input-mini form-control" value="<?php echo $item["quantity"]?>">
-                  </td>
-                  <td><?php echo $obj["gia_sp"]?></td>
-                  <td><?php echo $obj["gia_sp"] * $item["quantity"]?></td>
-                </tr>
-                <?php }?>
+              <?php $query .= " where id_sp ={$item["id_sp"]}";?>
+                <?php $obj = select_one($query);?>
+                  <tr>
+                    <td class="">
+                      <input type="checkbox" value="option1" id="optionsCheckbox">
+                    </td>
+                    <td class="muted center_text">
+                      <a href="product.html"><img src="images/<?php echo $obj["anh_sp"]?>" class="fix-image-cart" alt=""></a>
+                    </td>
+                    <td>
+                      <a href="detail.html">
+                        <?php echo $obj["chi_tiet"]?>
+                      </a>
+                    </td>
+                    <td>
+                      <input type="text" placeholder="1" class="input-mini form-control" value="<?php echo $item["quantity"]?>">
+                    </td>
+                    <td>
+                      <?php echo $obj["gia_sp"]?>
+                    </td>
+                    <td>
+                      <?php echo $obj["gia_sp"] * $item["quantity"]?>
+                    </td>
+                  </tr>
+                  <?php }?>
         </tbody>
         <tfoot>
           <tr>
@@ -48,7 +60,7 @@ $cart_item = get_cart_items();
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td><strong>Total all:</strong></td>
-            <td><strong>$4,700.00</strong></td>
+            <td><strong><?php echo get_total();?></strong></td>
           </tr>
         </tfoot>
       </table>

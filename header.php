@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-xs-12">
           <p class="text-right">
-            <a href="#" class="btn btn-warning"><span><?php echo $tk?></span> Login </a>
+            <a href="#" class="btn btn-warning"><span><?php //echo $tk?></span> Login </a>
             <a href="logout.php" class="btn btn-warning">Logout </a>
           </p>
         </div>
