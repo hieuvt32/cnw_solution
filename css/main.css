@@ -2517,3 +2517,7 @@ textarea {
 .contact-info .social-networks ul li a:hover {
     color: #FE980F;
 }
+
+.input-mini {
+    max-width: 75px;
+}

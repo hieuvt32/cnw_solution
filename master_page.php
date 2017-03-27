@@ -11,9 +11,7 @@
 // if($num_rows < 0){
 //     header('location:index.php');
 // }
-ob_start();
-session_start();
-ob_flush();
+if($include_session) include_once('session_start.php');
 ?>
   <!DOCTYPE html>
   <html lang="en">
