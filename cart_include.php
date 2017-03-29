@@ -105,3 +105,6 @@ $cart_id = $cart->get_cart_id();
       height: 80px;
     }
   </style>
+  <script>
+    $("#header").load(location.href + " #header");
+  </script>

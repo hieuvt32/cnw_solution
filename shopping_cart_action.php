@@ -3,6 +3,7 @@ include_once("lib_db.php");
 define("cart_action_key","cart_id");
 class shopping_cart_actions{
     public $cart_id;
+    public static $total;
     public function add_to_cart($id)
     {
         $cart_id = $this->get_cart_id();
@@ -43,6 +44,7 @@ class shopping_cart_actions{
         $sql = "select * from cart_item";
         $sql .= " where cart_id='{$shopping_cart_id}'";
         $lst_cart_item = select_list($sql);
+        //$total = count($lst_cart_item);
         return $lst_cart_item;
     }
 
