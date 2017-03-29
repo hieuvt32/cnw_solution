@@ -1,5 +1,6 @@
 <?php
 include_once("shopping_cart_action.php");
+$cart = new shopping_cart_actions();
 ?>
   <header id="header">
     <!--header-->
@@ -18,7 +19,7 @@ include_once("shopping_cart_action.php");
               <div class="active">
                 <img src="images/cart/cart-icon.png" width="30" height="15" alt="" />
                 <a href="cart.php" class="btn btn-default">
-                  <span>You have <?php echo count(get_cart_items());?> product</span>
+                  <span>You have <?php echo count($cart->get_cart_items());?> product</span>
                 </a>
               </div>
             </div>
