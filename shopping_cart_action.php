@@ -124,7 +124,7 @@ class shopping_cart_actions{
     public function get_count()
     {
         $cart_id = get_cart_id();
-        $sql = "select sum(quantity) as tong from cart_item where cart_id={$cart_id}";
+        $sql = "select sum(quantity) as tong from cart_item where cart_id='{$cart_id}'";
         $exec = select_one($sql);
         return $exec['tong'];
     }
